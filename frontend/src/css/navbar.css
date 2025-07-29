@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+    background-color: #111;
+    height: 70px; /* Fixed height for the navbar */
+    display: flex;
+    justify-content: space-between; /* Pushes content to the ends: brand left, links right */
+    align-items: center; /* Vertically centers items in the nav */
+    padding: 0 20px; /* Add some padding on the sides for spacing */
+    /* Remove any fixed widths on the nav itself, let it take 100% of parent */
+}
+
+/* --- Navbar Brand --- */
+.navbar-brand {
+    /* Removed translate as flexbox handles positioning */
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* Removed translate: 10px 20px; as align-items: center will handle vertical alignment,
+       and padding on `nav` will handle horizontal offset. */
+}
+
+.navbar-brand-link {
+    color: white;
+    text-decoration: none; /* Ensure text-decoration is off for links */
+    transition: all 0.25s linear;
+}
+
+.navbar-brand-link:hover {
+    background: linear-gradient(to right, #37ff00, #0080ff); /* Example gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.25s linear;
+    font-size: 1.51rem;
+}
+
+/* --- Navbar Links Container --- */
+.navbar-links {
+    display: flex; /* Make the links themselves a flex container */
+    align-items: center; /* Vertically center individual links if needed */
+    /* Removed translate, flexbox will handle it. */
+    /* Removed translate: 77vw 23px; or 90% 23px; */
+    gap: 25px; /* Use gap for spacing between links */
+}
+
+/* --- Individual Nav Link --- */
+.nav-link {
+    /* Removed margin-left as gap on .navbar-links handles spacing */
+    color: red; /* Original color, adjust if needed */
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none; /* Ensure text-decoration is off */
+    transition: all 0.3s linear;
+}
+
+.nav-link:hover {
+    font-size: 1rem;
+    transition: all 0.3s linear;
+}
+
+/* --- General Anchor Tag Styles --- */
+/* This `a` selector is very broad. It's often better to apply styles to specific classes.
+   However, if this is truly for all default link styles not covered by more specific classes, keep it. */
+a {
+    text-decoration: none;
+    color: white; /* Default color for other links not specifically styled */
+    cursor: pointer;
+}
+
+/* --- Media Queries --- */
+/* Only put styles here that NEED to change at this breakpoint.
+   With flexbox, often less is needed. */
+@media (max-width: 600px) {
+    /* If you want smaller padding on smaller screens */
+    nav {
+        padding: 0 15px;
+    }
+
+    /* Maybe make fonts slightly smaller on very small screens if they look cramped */
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    .nav-link {
+        font-size: 0.9rem;
+        gap: 15px; /* Adjust gap for smaller screens */
+    }
+
+    /* If you want to stack links or hide them behind a hamburger menu on small screens,
+       this is where you'd implement that. For "fixed in one spot" it means they are
+       always visible, but their spacing might need adjustment. */
+}
